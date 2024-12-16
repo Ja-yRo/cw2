@@ -49,7 +49,7 @@ pipeline {
                 echo 'Deploying to Production Server...'
                 sshagent(['jenkins-k8s-ssh-key']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@172.31.18.90 '
+                        ssh ubuntu@172.31.18.90
                         docker pull jayr1/cw2-server:0.1
                         docker stop production-container || true
                         docker rm production-container || true
